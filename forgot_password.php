@@ -11,7 +11,7 @@
         Email của bạn
         <input type="text" name="email">
         <br>
-        <button>Quên mật khẩu</button>
+        <button>Đặt lại mật khẩu</button>
     </form>
 </body>
 </html>
