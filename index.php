@@ -39,5 +39,23 @@
         <?php include 'content.php'; ?>
         <?php include 'footer.php'; ?>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn-add-to-cart").click(function () { 
+                let id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    url: "add_to_cart.php",
+                    data: {id},
+                    success: function () {
+                        alert("Thêm thành công");
+                    }
+                    
+                });
+                
+            });
+        });
+    </script>
 </body>
 </html>
