@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include 'header.php' ?>
+    <?php 
+        include 'header.php';
+        if(empty($_SESSION['id']))
+            header("location:index.php");
+    ?>
     <?php 
     if (!empty($_SESSION['cart'])) {
         $cart = $_SESSION['cart'];
