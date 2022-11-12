@@ -30,13 +30,13 @@
                 <td><?php echo $value['name'] ?></td>
                 <td><?php echo $value['price'] ?></td>
                 <td>
-                    <a href="update_quantity_in_cart.php?id=<?php echo $id ?>&type=dec">
-                        <button>-</button>
-                    </a>
+                    <button class="btn-update-quantity" data-id="<?php echo $id ?>" data-type="dec">
+                        -
+                    </button>
                     <center><?php echo $value['quantity'] ?></center>
-                    <a href="update_quantity_in_cart.php?id=<?php echo $id ?>&type=inc">
-                        <button>+</button>
-                    </a>
+                    <button class="btn-update-quantity" data-id="<?php echo $id ?>" data-type="inc">
+                        +
+                    </button>
                 </td>
                 <td>
                     <?php 
@@ -79,8 +79,27 @@
     <button>Đặt hàng</button>
     </form>
     </center>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn-update-quantity").click(function()  { 
+                let id = $(this).data('id');
+                let type = $(this).data('type');
+                $.ajax({
+                    type: "GET",
+                    url: "update_quantity_in_cart.php",
+                    data: {id,type},
+                    success: function (response) {
+                        
+                    }
+                });
+                
+            });
+        });    
+    </script>
     <?php }else{ ?>
         <center><h1>Giỏ hàng trống</h1></center>
     <?php } ?>
+    
 </body>
 </html>

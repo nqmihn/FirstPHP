@@ -11,4 +11,3 @@
     }else{
         $_SESSION['cart'][$id]['quantity']++;
     }
-    header('location:view_cart.php');
